@@ -1,0 +1,7 @@
+{
+  "name": "PadPet - Administracion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
