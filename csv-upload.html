@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cargar CSV</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen p-6">
+  <div class="max-w-3xl mx-auto bg-white p-6 rounded shadow-md">
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-gray-800">Subir archivo CSV</h1>
+      <a href="dashboard.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        ← Volver al Panel
+      </a>
+    </div>
+
+    <form id="upload-form" class="space-y-4">
+      <!-- Selector tipo de carga -->
+      <div>
+        <label for="tipo-carga" class="block text-sm font-medium text-gray-700 mb-1">¿Qué deseas cargar?</label>
+        <select id="tipo-carga" required class="w-full border rounded px-3 py-2">
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option value="tutor">Tutores</option>
+          <option value="mascota">Mascotas</option>
+        </select>
+      </div>
+
+      <!-- Carga de archivo -->
+      <div>
+        <label for="csv-file" class="block text-sm font-medium text-gray-700 mb-1">Seleccionar archivo CSV:</label>
+        <input type="file" id="csv-file" accept=".csv" required
+          class="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-green-600 file:text-white hover:file:bg-green-700" />
+      </div>
+
+      <button type="submit"
+        class="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition">Cargar Datos</button>
+    </form>
+
+    <div id="results" class="mt-6 text-sm space-y-1"></div>
+  </div>
+
+  <!-- Dependencias -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/csv-upload.js"></script>
+</body>
+</html>
